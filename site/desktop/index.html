@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<title>TheZZAZZGlitch's April Fools Event 2018 - Desktop client</title>
+
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+<style>
+body { background: white; color: black; font-family: 'Lato', sans-serif; padding: 10px; background: #f4f4f4; }
+p { font-size: 16px; }
+h1 { font-size: 26px; }
+#content { width: 800px; background: white; margin: 0 auto 0 auto; padding: 16px; }
+.screenshot { width: 100%; text-align: center; }
+.screenshot img { width: 600px; }
+</style>
+
+<div id='content'>
+<h1 style='margin-top:0'>TheZZAZZGlitch's April Fools Event 2018 - Desktop client</h1>
+
+<p>The event save file connects to the Internet by utilizing the Gameboy link cable, and the <a href='http://bgb.bircd.org/'>BGB emulator</a> happens to have support for emulating link cable transmissions over TCP/IP. Thanks to this, it's possible to use BGB to connect to the event servers via a special client application. Here are some instructions to help you set this up.</p>
+
+<div class='screenshot'><img src='https://i.imgur.com/43XAoHP.png' alt='Screenshot of the client running'></div>
+
+<h1>Important note</h1>
+
+<p>If you wish to play using a desktop client with a real emulator, <b>do not use savestates while playing</b>! Doing this may cause some items from your inventory to disappear, and render some of the game's quests unfinishable!</p>
+
+<h1>Download the client and the emulator</h1>
+
+<p>First, <a href='DESKTOP CLIENT LINK HERE'>download the client application (8 MB ZIP)</a>. BGB won't be able to connect to a remote service by itself, since its TCP/IP link cable implementation was intended mostly for local use. To help BGB contact the event servers, a local proxy needs to be created. The emulator will send requests to a server launched on your machine, which will forward them to the Interwebz.</p>
+
+<p>Uncompress the ZIP file to a separate directory on your computer's hard drive. To run the client, double click the <i>StartClient.bat</i> script.</p>
+
+<p>Obviously, you will also need a copy of the <a href='http://bgb.bircd.org/'>BGB emulator</a>. Get the latest version (as of today, version 1.5.6), as the client application was not tested for anything older than that.
+
+<h1>Get the ROM and the save file</h1>
+
+<p>You should have a copy of the Pok&eacute;emon Yellow English ROM - if you don't have it, acquire one through a method of your choosing. Next, download the <a href='glitchland.sav'>event save file</a>. Make sure your ROM and the SAV file have the same file names, this is to make sure BGB will see the save file. So if the ROM name is <i>yellow.gbc</i>, rename your save file to <i>yellow.sav</i>. Make sure the emulator is <u>not</u> running when you're doing this.</p>
+
+<h1>Let's begin!</h1>
+
+<p>Launch the client application if you haven't already. Log in using your credentials from the event site. Then, launch the BGB emulator and load up your ROM. Then, select <i>Link &raquo; Connect</i> from the menu. In the window that appears, enter the server address: <b>127.0.0.1:8765</b>.</p>
+
+<p style='text-align:center'><img src='https://i.imgur.com/OENPGSB.png' style='width:250px'></p>
+
+<p>Within the game, load the event save file. A connection test will be performed. If it is successful, then you're set. Have fun exploring Glitchland!</p>
+
+<h1>Troubleshooting</h1>
+
+<p>The client requires the <a href='https://www.microsoft.com/en-us/download/details.aspx?id=29'>Microsoft Visual C++ 2008 Redistributable Package</a>. If you receive any errors about missing DLL files, make sure you install it first.</p>
+
+<p>Make sure your firewall isn't blocking the client application from creating a server. If the emulator has trouble connecting to the local server, you might need to check your firewall rules. This especially applies to the Windows Firewall, which likes to block anything that was downloaded from the Internet.</p>
+
+<p>If you're running on Windows Vista or XP, make sure to "unlock" the application. Go the <i>dist</i> folder located in the application directory, view the properties of <i>client.exe</i> and click <i>Unlock</i> if it is there.</p>
+
+</div>

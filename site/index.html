@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<meta charset='utf-8'>
+<title>Welcome to the World of Glitchland</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link rel='stylesheet' href='style.css'>
+<script src='script.js?2'></script>
+
+<div id='header' class='bare-element'>
+    <div id='header_text'>
+        <h1>Welcome to Glitchland</h1>
+        <h2>TheZZAZZGlitch's April Fools Event 2018</h2>
+        <br>
+        <span class='countdowns'>
+            <span id='countdown_end'>? until the end of the event.</span><br>
+            <span id='countdown_shutdown'>? until server shutdown.</span>
+        </span>
+    </div>
+</div>
+
+<div class='bare-element section-header'>
+    Explore all of the secrets of this brand new world...
+</div>
+
+<div class='bare-element section-content' id='main'>
+    A Pok&eacute;mon Yellow save file that connects to an online world with the link cable.<br>
+    Will you be able to uncover all of the mysteries of this unknown land?<br><br>
+    Please create an account or log in before playing.<br><br>
+    <button class="btn btn-primary" onclick='transition("#main","#register",registerValidate)'>
+        Register
+    </button> &nbsp;
+    <button class="btn btn-primary" onclick='transition("#main","#login")'>
+        Log in
+    </button>
+    <div style='height: 8px;'></div>
+</div>
+
+<div class='bare-element section-content' id='register' style='display:none'>
+    <p>Choose a username and password. Because of in-game limitations, the usernames can be at most 15 characters, and may only contain alphanumeric characters. Your username will be shown to other players.</p>
+    <p>You should choose a password that you're not using in any other service - you're dealing with the hacker community, after all. Note that the passwords cannot be reset - make sure you don't forget it.</p>
+    <br>
+    <input type='text' class='form-control text-center' placeholder='Username' maxlength='15' id='register_username' onchange='registerValidate()' onkeyup='registerValidate()'>
+    <br>
+    <input type='password' class='form-control text-center' placeholder='Password' id='register_password1' onchange='registerValidate()' onkeyup='registerValidate()'>
+    <br>
+    <input type='password' class='form-control text-center' placeholder='Confirm password' id='register_password2' onchange='registerValidate()' onkeyup='registerValidate()'>
+    <input type='hidden' class='form-control text-center' id='register_message' value=''>
+    <br>
+    <button type="submit" class="btn btn-primary main-button" id='register_btn' onclick='transition("#register","#loader",registerPerform)'>
+        Register
+    </button> &nbsp;
+    <button type="submit" class="btn btn-default main-button" onclick='transition("#register","#main")'>
+        Cancel
+    </button>
+    <div style='height: 8px;'></div>
+</div>
+
+<div class='bare-element section-content' id='edit_details' style='display:none'>
+    <p>Set a new message here.</p>
+    <br>
+    <input type='text' class='form-control text-center' maxlength='120' placeholder='Your message (max. 120 characters)' id='edit_details_message'>
+    <br>
+    <button type="submit" class="btn btn-primary main-button" id='edit_details_btn' onclick='transition("#edit_details","#loader",editDetailsPerform)'>
+        Change
+    </button> &nbsp;
+    <button type="submit" class="btn btn-default main-button" onclick='transition("#edit_details","#start_playing")'>
+        Cancel
+    </button>
+    <div style='height: 8px;'></div>
+</div>
+
+<div class='bare-element section-content' id='login' style='display:none'>
+    <input type='text' class='form-control text-center' placeholder='Username' maxlength='15' id='login_username'>
+    <br>
+    <input type='password' class='form-control text-center' placeholder='Password' id='login_password'>
+    <br>
+    <button type="submit" class="btn btn-primary main-button" id='login_btn' onclick='transition("#login","#loader",loginPerform)'>
+        Log in
+    </button> &nbsp;
+    <button type="submit" class="btn btn-default main-button" onclick='transition("#login","#main")'>
+        Cancel
+    </button>
+    <div style='height: 8px;'></div>
+</div>
+
+<div class='bare-element section-content' id='user_profile' style='display:none'>
+    <p>You are viewing <b id='user_profile_name'>?</b>'s profile.</p>
+    <div id='achievement_list'></div>
+    <br>
+    <button type="submit" class="btn btn-default main-button" onclick='transition("#user_profile","#start_playing")'>
+        Go back
+    </button>
+    <div style='height: 8px;'></div>
+</div>
+
+<div class='bare-element section-content' id='start_playing' style='display:none'>
+    <p>You are logged in as <b class='placeholder_username'>?</b>. Not you? <a href='javascript:void(0)' onclick="logout()">Log out</a>.</p>
+    <p>The event has ended. Servers will remain operational until April 23, 15:30 UTC, so the game will remain playable during that period - however, the leaderboard will no longer update. After server shutdown, the project's source code will be released on <a href='https://github.com/zzazzdzz/fools2018'>https://github.com/zzazzdzz/fools2018</a>.</p>
+    <p>Play online in your modern HTML5 compatible browser without any further setup, or use a desktop app with the BGB emulator. Click <a href='javascript:void(0)' onclick='checkSelf()'>here</a> to view your achievement page</a> (unlike the leaderboard, this will still update to match your game progress).</p>
+    <p>Note - if you're constantly getting communication errors when using the online client, try logging out and logging in again.</p>
+    <div style='height: 8px;'></div>
+    <button class="btn btn-primary" onclick='window.location="online/"'>
+        Play online in your browser
+    </button> &nbsp;
+    <button class="btn btn-primary" onclick='window.location="desktop/"'>
+        Set up instructions for BGB
+    </button>
+    <div style='height: 8px;'></div>
+</div>
+
+<div class='bare-element section-content' id='loader' style='display:none'>
+    <img src='img/loading.svg' alt='Loading...' class='loader'>
+    <span class='subtitle'>Please wait...</span>
+</div>
+
+<div class='bare-element section-content' id='register_error' style='display:none'>
+    <b>An error occured: </b> <span class='error_msg'>Unknown error.</span><br><br>
+    <span class='subtitle'><a href='javascript:void(0)' onclick='transition("#register_error","#register")'>Try again?</a></span>
+</div>
+
+<div class='bare-element section-content' id='login_error' style='display:none'>
+    <b>An error occured: </b> <span class='error_msg'>Unknown error.</span><br><br>
+    <span class='subtitle'><a href='javascript:void(0)' onclick='transition("#login_error","#login")'>Try again?</a></span>
+</div>
+
+<div class='bare-element section-content' id='edit_details_error' style='display:none'>
+    <b>An error occured: </b> <span class='error_msg'>Unknown error.</span><br><br>
+    <span class='subtitle'><a href='javascript:void(0)' onclick='transition("#edit_details_error","#edit_details")'>Try again?</a></span>
+</div>
+
+<div class='bare-element section-content' id='user_profile_error' style='display:none'>
+    <b>An error occured: </b> <span class='error_msg'>Unknown error.</span><br><br>
+    <span class='subtitle'><a href='javascript:void(0)' onclick='transition("#user_profile_error","#start_playing")'>Try again?</a></span>
+</div>
+
+<div class='bare-element section-content' id='register_success' style='display:none'>
+    <p>The registration was successful. You can now log in.</p>
+    <br>
+    <button class="btn btn-primary" onclick='transition("#register_success","#login")'>
+        Got it
+    </button>
+    <div style='height: 8px;'></div>
+</div>
+
+<div class='bare-element section-content' id='edit_details_success' style='display:none'>
+    <p>The operation completed successfully.</p>
+    <br>
+    <button class="btn btn-primary" onclick='transition("#edit_details_success","#start_playing")'>
+        Got it
+    </button>
+    <div style='height: 8px;'></div>
+</div>
+
+<table class='bare-element score-table' id='highscore_table'>
+    <tr>
+        <th style='width:10%'>#</th>
+        <th>Username</th>
+        <th style='width:35%'>Achievement score</th>
+    </tr>
+    <tr>
+        <td colspan='5' class='info-cell servicing' id='highscore_loader' style='display:none'>
+            <img src='img/loading.svg' alt='Loading...' class='loader'>
+            <span class='subtitle'>Please wait, now loading all of your awesome scores!</span>
+        </td>
+    </tr>
+    <tr>
+        <td colspan='5' class='info-cell servicing' id='highscore_error' style='display:none'>
+            <b>Something went wrong...</b><br><br>
+            <span class='subtitle'><a href='?' onclick='loadHighscores(); return false'>Try again?</a></span>
+        </td>
+    </tr>
+    <tr>
+        <td colspan='5' class='info-cell' id='highscore_noscript'>
+            Please wait, loading components.<br>
+            Try to enable JavaScript if this message stays here for too long.
+        </td>
+    </tr>
+</table>

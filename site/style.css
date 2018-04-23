@@ -1,0 +1,139 @@
+body {
+    background: white url('img/backs.png');
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    min-width: 940px;
+}
+
+.bare-element {
+    text-align: center;
+    min-width: 640px;
+    max-width: 900px;
+    margin: 0 auto 0 auto !important;
+    box-shadow: 0 0 3px black;
+    width: 70%;
+}
+
+#header {
+    background: #ddd url('img/header.png');
+    margin: 0;
+    height: 250px;
+    color: #f6f6f6;
+    padding-top: 25px;
+}
+
+#header_text {
+    margin: 0 auto 0 auto;
+    padding: 24px 0 35px 0;
+    background-position: bottom center;
+    text-shadow: 0px 0px 15px #000;
+}
+
+h1 {
+    font-size: 40px;
+    margin: 0 0 20px 0;
+    font-weight: bold;
+}
+h2 {
+    font-size: 25px;
+    margin: 0;
+}
+
+#header_extend {
+    height: 10px;
+    width: 10px;
+}
+
+#content {
+    min-width: 640px;
+    width: 70%;
+}
+
+.section-header {
+    background-image: url('img/section.png');
+    padding: 5px;
+    font-weight: bold;
+}
+
+.section-content {
+    background: white;
+    font-size: 14px;
+    padding: 15px;
+}
+
+.main-button {
+    font-weight: bold;
+    font-family: "Lato",Helvetica,Arial,sans-serif;
+}
+
+.score-table th {
+    background-image: url('img/section.png');
+    font-weight: bold;
+    text-align: center;
+}
+.score-table {
+    background: white;
+}
+.score-table td, .score-table th {
+    border-left: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    padding: 4px;
+}
+.score-table td:first-child, .score-table th:first-child {
+    border-left: none;
+}
+.score-table a {
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 10px;
+}
+
+.tooltip-inner {
+    padding: 8px;
+}
+
+.loader {
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.info-cell {
+    padding: 15px !important;
+    background: white !important;
+}
+
+.message {
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.achievement-table th {
+    background-image: url('img/section.png');
+    font-weight: bold;
+    text-align: center;
+}
+.achievement-table {
+    background: white;
+    border-collapse: collapse;
+    width: 90%;
+    margin: 0 auto 0 auto;
+}
+.achievement-table td, .achievement-table th {
+    border: 1px solid #aaa;
+    padding: 4px;
+}
+.achievement-description {
+    font-size: 12px;
+}
+.achievement-title {
+    font-weight: bold;
+}
+.achievement-achieved {
+    background: #afa;
+}
+.achievement-unachieved {
+    background: #f5f5f5;
+}

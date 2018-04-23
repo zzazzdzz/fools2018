@@ -1,0 +1,77 @@
+<!--
+
+TheZZAZZGlitch's April Fools Event 2018 online client was created thanks to this project:
+
+JavaScript GameBoy Color Emulator
+Copyright (C) 2010 - 2016 Grant Galitz
+https://github.com/taisel/GameBoy-Online
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+--><!DOCTYPE html>
+<meta charset='utf-8'>
+<title>TheZZAZZGlitch's April Fools Event 2018 - Online client</title>
+
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+
+<script type="text/javascript" src="js/XAudioServer.js"></script>
+<script type="text/javascript" src="js/GameBoyCore.js"></script>
+<script type="text/javascript" src="js/GameBoyIO.js"></script>
+<script type="text/javascript" src="js/swfobject.js"></script>
+<script type="text/javascript" src="js/resampler.js"></script>
+<script type="text/javascript" src="js/base64.js"></script>
+<script type="text/javascript" src="js/sram.js"></script>
+
+<script src="script.js"></script>
+
+<style>
+canvas {
+    image-rendering: optimizeSpeed;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: -o-crisp-edges;
+    image-rendering: pixelated;
+    -ms-interpolation-mode: nearest-neighbor;
+}
+
+body { background: white; color: black; font-family: 'Lato', sans-serif; padding: 10px; background: #f4f4f4; }
+p { font-size: 16px; }
+h1 { font-size: 26px; }
+#content { width: 800px; background: white; margin: 0 auto 0 auto; padding: 16px; }
+input[type=file] { background: #eee; border: 1px solid #ccc; }
+h1 { margin-top: 0; }
+</style>
+
+<div id='content'>
+    <h1>TheZZAZZGlitch's April Fools Event 2018 - Online client</h1>
+    <div id='intro'>
+        <p>This is an HTML5-based online client for the event. It requires no configuration and can be played in most of the modern browsers.</p>
+
+        <p>There is only one thing that you have to provide on your own, and that's the English ROM of Pok&eacute;mon Yellow (not included here, because of the copyright issues). Once you select the proper ROM, a JavaScript-based GBC emulator will start, the event save file will be automatically loaded, and an emulated link cable connection will be estabilished with the event servers. <u>You will be logged in using the current account on the event site</u> (<b><script>
+            document.write(localStorage['d_username']);
+        </script></b>).</p>
+
+        <p>Controls: Z for the A button, S or X for the B button, Enter for the Start button, Space for the Select button, arrow keys as the D-Pad.</p>
+
+        <p>Load an English Pok&eacute;mon Yellow ROM to continue:</p>
+
+        <input type="file" id="finp">
+    </div>
+    <canvas id='cv' width='160' height='144' style='width:480px;height:432px;display:none;border:1px solid #999'></canvas>
+</div>
+
+<script>
+    if (localStorage['d_username'] && localStorage['d_sessid']){
+        document.getElementById('finp').addEventListener('change', function(e){
+            var file = document.getElementById('finp').files[0];
+            reader.readAsBinaryString(file);
+        });
+    }else{
+        alert("You are not logged in.");
+        window.location = '..';
+    }
+</script>
