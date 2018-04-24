@@ -11,10 +11,15 @@ except:
 def splice(data, s, offset):
     return data[0:offset] + s + data[offset+len(s):]
 
-print("creating bin folder...")                                    
-ret = os.system("mkdir ../bin")                                    
-if ret != 0:                                                       
-    raise RuntimeError("can't create ../bin folder")
+if not os.path.isdir("../bin"):
+    if os.path.exists("../bin"):
+        ret = os.system("rm ../bin")
+        if ret != 0:
+            raise RuntimeError("can't remove ../bin file")
+    print("creating bin folder...")
+    ret = os.system("mkdir ../bin")
+    if ret != 0:
+        raise RuntimeError("can't create ../bin folder")
 
 print("invoking rgbasm...")
 ret = os.system("rgbasm -o ../bin/main.obj main.asm")
