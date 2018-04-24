@@ -13,6 +13,7 @@ def splice(data, s, offset):
 
 if not os.path.isdir("../bin"):
     if os.path.exists("../bin"):
+        printf("removing bin file...")
         ret = os.system("rm ../bin")
         if ret != 0:
             raise RuntimeError("can't remove ../bin file")
