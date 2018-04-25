@@ -13,14 +13,11 @@ def splice(data, s, offset):
 
 if not os.path.isdir("../bin"):
     if os.path.exists("../bin"):
-        print("removing bin file...")
-        ret = os.system("rm ../bin")
-        if ret != 0:
-            raise RuntimeError("can't remove ../bin file")
-    print("creating bin folder...")
-    ret = os.system("mkdir ../bin")
+        raise RuntimeError("../bin is not a directory")
+    print("creating ../bin...")
+    ret = os.system("mkdir -p ../bin")
     if ret != 0:
-        raise RuntimeError("can't create ../bin folder")
+        raise RuntimeError("can't create ../bin directory")
 
 print("invoking rgbasm...")
 ret = os.system("rgbasm -o ../bin/main.obj main.asm")
