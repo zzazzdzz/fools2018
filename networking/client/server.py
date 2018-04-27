@@ -7,6 +7,7 @@ import random
 import util
 import request
 import gui
+import threading
 
 import socket
 import socketserver
@@ -149,6 +150,9 @@ class BGBLinkCableServer(socketserver.BaseRequestHandler):
                     environment.response_sent = False
                     self.dataReceived(conn, environment, p['b'])
 
-def run():
+def serverThread():
     server = socketserver.ThreadingTCPServer(('127.0.0.1', 8765), BGBLinkCableServer)
     server.serve_forever()
+	
+def start():
+    threading.Thread(target=serverThread).start()
