@@ -112,3 +112,4 @@ lblStatus.pack(side=tkinter.TOP, padx=10, pady=10)
 
 def start():
     top.mainloop()
+    os._exit(0)
