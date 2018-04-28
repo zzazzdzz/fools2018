@@ -51,28 +51,28 @@ Map_2276_Script:
     and a
     jr nz, .spinning
     xor a
-	ld [$cd6b], a
+    ld [$cd6b], a
     ld hl, $d735
-	res 7, [hl]
+    res 7, [hl]
     ld hl, $d6ff
     res 0, [hl]
     ld a, [$d360]
-	ld b, a
-	ld a, [$d361]
-	ld c, a
+    ld b, a
+    ld a, [$d361]
+    ld c, a
     ld hl, Map_2276_ArrowTileMovement
-	call DecodeArrowMovementRLE
-	cp $ff
-	ret z
+    call DecodeArrowMovementRLE
+    cp $ff
+    ret z
     ld hl, $d735
-	set 7, [hl]
+    set 7, [hl]
     ld hl, $d6ff
     set 0, [hl]
-	call StartSimulatingJoypadStates
-	ld a, SFX_ARROW_TILES
-	call PlaySound
+    call StartSimulatingJoypadStates
+    ld a, SFX_ARROW_TILES
+    call PlaySound
     ld a, $ff
-	ld [$cd6b], a
+    ld [$cd6b], a
     ret
 .spinning
     ld hl, LoadSpinnerArrowTiles

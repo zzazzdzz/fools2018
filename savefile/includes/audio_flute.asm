@@ -26,8 +26,8 @@ FluteMusic_Ch3_sub_1:
     endchannel
 FluteMusic_Ch3::
     tempo 180
-	vibrato 24, 2, 8
-	notetype 12, 1, 2
+    vibrato 24, 2, 8
+    notetype 12, 1, 2
     notetype 6, 1, 2
     octave 4
     G_ 1

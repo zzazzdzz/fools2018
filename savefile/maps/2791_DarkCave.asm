@@ -46,7 +46,7 @@ Map_2791_TextPointers:
 
 Map_2791_InitScript:
     ld a, $06
-	ld [$d35c], a
+    ld [$d35c], a
     ld a, 2
     ld [Map5FScriptIndex], a
     ret

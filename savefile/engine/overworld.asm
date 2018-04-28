@@ -14,7 +14,7 @@ _StartLoadingMap:
     call OpenTextboxInOverworld
     call BlackScreenWithVRAMCopy
     xor a
-	ld [$d35c], a
+    ld [$d35c], a
     call LoadGBPal
     jp ReceiveMap
 

@@ -258,10 +258,10 @@ LoadCurrentMap:
     and $01
     jr nz, .skipClearingState
     ld hl, $d730
-	set 7, [hl]
-	xor a
-	ld [$d6ff], a
-	call LoadWalkingPlayerSpriteGraphics
+    set 7, [hl]
+    xor a
+    ld [$d6ff], a
+    call LoadWalkingPlayerSpriteGraphics
 .skipClearingState
     ; Save the current map's music IDs
     ld a, [$d35a]

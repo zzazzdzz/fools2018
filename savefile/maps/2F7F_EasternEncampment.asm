@@ -36,7 +36,7 @@ Map_2F7F_TextPointers:
 
 Map_2F7F_InitScript:
     ld a, $05
-	ld [$d35c], a
+    ld [$d35c], a
     ld a, 2
     ld [Map5FScriptIndex], a
     ret

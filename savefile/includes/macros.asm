@@ -28,11 +28,11 @@ ENDM
 ; Some macros and consts from the original pokeyellow disassembly.
 
 coord: MACRO
-	IF _NARG >= 4
-		ld \1, \4 + SCREEN_WIDTH * \3 + \2
-	ELSE
-		ld \1, wTileMap + SCREEN_WIDTH * \3 + \2
-	ENDC
+    IF _NARG >= 4
+        ld \1, \4 + SCREEN_WIDTH * \3 + \2
+    ELSE
+        ld \1, wTileMap + SCREEN_WIDTH * \3 + \2
+    ENDC
 ENDM
 
 TX_ASM equs "db 8"
@@ -41,23 +41,23 @@ ITEM    EQU $80
 TRAINER EQU $40
 
 object: MACRO
-	db \1
-	db \3 + 4
-	db \2 + 4
-	db \4
-	db \5
-	IF (_NARG > 7)
-		db TRAINER | \6
-		db \7
-		db \8
-	ELSE
-		IF (_NARG > 6)
-			db ITEM | \6
-			db \7
-		ELSE
-			db \6
-		ENDC
-	ENDC
+    db \1
+    db \3 + 4
+    db \2 + 4
+    db \4
+    db \5
+    IF (_NARG > 7)
+        db TRAINER | \6
+        db \7
+        db \8
+    ELSE
+        IF (_NARG > 6)
+            db ITEM | \6
+            db \7
+        ELSE
+            db \6
+        ENDC
+    ENDC
 ENDM
 
 WALK EQU $FE
@@ -178,23 +178,23 @@ hdr_connection_q EQUS "hdr_connection"
 ;\7 trainers only: trainer class/pokemon id
 ;\8 trainers only: trainer number/pokemon level
 hdr_object: MACRO
-	db \1
-	db \3 + 4
-	db \2 + 4
-	db \4
-	db \5
-	IF (_NARG > 7)
-		db TRAINER | \6
-		db \7
-		db \8
-	ELSE
-		IF (_NARG > 6)
-			db ITEM | \6
-			db \7
-		ELSE
-			db \6
-		ENDC
-	ENDC
+    db \1
+    db \3 + 4
+    db \2 + 4
+    db \4
+    db \5
+    IF (_NARG > 7)
+        db TRAINER | \6
+        db \7
+        db \8
+    ELSE
+        IF (_NARG > 6)
+            db ITEM | \6
+            db \7
+        ELSE
+            db \6
+        ENDC
+    ENDC
 ENDM
 
 ;\1 x position

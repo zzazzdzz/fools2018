@@ -130,8 +130,8 @@ SerialTransmitBlock:
     
 ShowTransmitMessage:
     ld a, 1
-	ld [wTextBoxID], a
-	call DisplayTextBoxID
+    ld [wTextBoxID], a
+    call DisplayTextBoxID
     coord hl, 1, 14
     ld de, TransmitMessage
     jp PutStringSameBank

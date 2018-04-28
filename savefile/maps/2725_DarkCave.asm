@@ -42,7 +42,7 @@ Map_2725_TextPointers:
 
 Map_2725_InitScript:
     xor a
-	ld [$d35c], a
+    ld [$d35c], a
     ret
 Map_2725_Script:
     ret

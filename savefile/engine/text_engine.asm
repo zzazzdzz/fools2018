@@ -56,10 +56,10 @@ _PrintTextEnhanced:
     xor a
     ld [CharAddConstant], a
     ld a, 1
-	ld [wTextBoxID], a
-	call DisplayTextBoxID
+    ld [wTextBoxID], a
+    call DisplayTextBoxID
     call UpdateSpritesSafeguarded
-	call Delay3
+    call Delay3
     call ClearState
     pop hl
 EnhancedTextCommandProcessor:
@@ -129,7 +129,7 @@ EnhancedTextCommandF3:
     ld bc, $0412
     call ClearScreenArea
     ld c, 20
-	call DelayFrames
+    call DelayFrames
     pop hl
     jp EnhancedTextCommandProcessor
 

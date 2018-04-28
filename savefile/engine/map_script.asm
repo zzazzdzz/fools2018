@@ -37,25 +37,25 @@ GenerateDECoordArray:
 HandleCurrentMapScript:
     ld a, [$c45c]
     cp $14
-	jr z, .noCollision
-	cp $32
-	jr z, .noCollision
-	cp $48
-	jr z, .noCollision
+    jr z, .noCollision
+    cp $32
+    jr z, .noCollision
+    cp $48
+    jr z, .noCollision
     cp $37
-	jr z, .noCollision
+    jr z, .noCollision
     cp $27
-	jr z, .noCollision
+    jr z, .noCollision
     cp $24
-	jr z, .noCollision
+    jr z, .noCollision
     cp $1d
-	jr z, .noCollision
+    jr z, .noCollision
     cp $2c
-	jr z, .noCollision
+    jr z, .noCollision
     cp $0d
-	jr z, .noCollision
+    jr z, .noCollision
     cp $36
-	jr z, .noCollision
+    jr z, .noCollision
     ld c, a
     call IsTilePassable
     jp c, CheatingAttempt
