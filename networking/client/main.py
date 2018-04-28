@@ -2,9 +2,9 @@ import os
 
 import server
 import gui
-            
+
 try:
+    server.start()
     gui.start()
-    server.run()
 except KeyboardInterrupt:
     os._exit(0)

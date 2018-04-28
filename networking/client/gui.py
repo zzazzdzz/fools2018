@@ -110,9 +110,6 @@ lblSuccess.pack(side=tkinter.TOP, padx=10, pady=10)
 lblStatus = tkinter.Label(frmStatus, text='Status: Awaiting connection...', font="Verdana 10 bold")
 lblStatus.pack(side=tkinter.TOP, padx=10, pady=10)
 
-def mainThread():
+def start():
     top.mainloop()
     os._exit(0)
-
-def start():
-    threading.Thread(target=mainThread).start()
