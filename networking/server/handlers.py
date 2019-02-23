@@ -205,12 +205,12 @@ def requestHandlerLottery(request, sessid):
     for i in range(1, match_count+1):
         storage.push_event(user['id'], storage.EVT_LOTTERY, i)
 
-    return b''.join(
+    return b''.join((
         bytes([match_count]),
         letter_str,
         type_str,
         bytes([random.randrange(0, 255)])
-    )
+    ))
 
 '''
     [request_code = 0x08, GAVE_BALLS]

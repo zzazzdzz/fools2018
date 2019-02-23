@@ -34,7 +34,7 @@ def handle(request, sessid):
     length_h = content_length // 256
     length_l = content_length % 256
 
-    out = [length_l, length_h, checksum_l, checksum_h, req_code] + req_result
+    out = b''.join((bytes([length_l]), bytes([length_h]), bytes([checksum_l]), bytes([checksum_h]), bytes([req_code]), bytes(req_result)))
     logger.log("RESP: " + binascii.hexlify(bytearray(out)).decode('ascii'))
 
     return out
