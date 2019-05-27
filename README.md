@@ -1,10 +1,10 @@
 # fools2018
 
-TheZZAZZGlitch's April Fools Event 2018. A save file for Pokémon Yellow that contained an open world to explore, called Glitchland. All of the game's content was dynamically downloaded from the internet via some link cable magic. The players would receive points and achievements for completing certain quests, and the progress was shown online on the event site.
+TheZZAZZGlitch's April Fools Event 2018. A save file for PokÃ©mon Yellow that contained an open world to explore, called Glitchland. All of the game's content was dynamically downloaded from the internet via some link cable magic. The players would receive points and achievements for completing certain quests, and the progress was shown online on the event site.
 
 That's exactly what happened between 1st and 24th of April, 2018, before I had to shut down the game servers. Following this, a decision was made to release the complete source code for the event and all of its components, so everyone can now run their own Glitchland at home.
 
-![](https://cdn.pbrd.co/images/HhQYi99.png)
+![](https://i.imgur.com/KiT4TAL.png)
 
 Attention: Everything here is kept for historical record, and such, any bugs and issues will not be resolved. Fork the repository if you wish to build something on top of it.
 
